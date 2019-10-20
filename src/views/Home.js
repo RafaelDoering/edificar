@@ -1,22 +1,11 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  TouchableNativeFeedback,
-  TouchableHighlight,
-  Platform
-} from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Colors from '../constants/Colors';
 
-export default function Home(props) {
-  let TouchableComponent = TouchableNativeFeedback;
-  if (Platform.OS === 'ios') {
-    TouchableComponent = TouchableHighlight;
-  }
+import NativeButton from '../components/NativeButton';
 
+export default function Home(props) {
   function goToPlant() {
     props.navigation.navigate('Plant');
   }
@@ -27,11 +16,11 @@ export default function Home(props) {
         <Text style={styles.subHeaderText}>Projetos</Text>
       </View>
       <ScrollView>
-        <TouchableComponent onPress={goToPlant}>
+        <NativeButton onPress={goToPlant}>
           <View style={styles.itemContainer}>
             <Text style={styles.itemText}>Bloco 5</Text>
           </View>
-        </TouchableComponent>
+        </NativeButton>
       </ScrollView>
       <View style={styles.floatButtonContainer}>
         <View style={styles.floatButton}>

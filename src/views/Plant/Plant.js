@@ -1,30 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
-export default function Plant() {
-  const options = [
-    'Planta Detalhada',
-    'Lista de Materiais',
-    'Cronograma da Obra',
-    'Galeria de Fotos'
-  ];
+import NativeButton from '../../components/NativeButton';
+
+export default function Plant(props) {
+  function goToOptions() {
+    props.navigation.navigate('PlantOptions');
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.subHeaderContainer}>
         <Text style={styles.subHeaderText}>Sala 5001</Text>
       </View>
-      <ScrollView>
-        {options.map((option, index) => {
-          return (
-            <View style={styles.itemContainer} key={index}>
-              <Text style={styles.itemText}>{option}</Text>
-            </View>
-          );
-        })}
-      </ScrollView>
+      <NativeButton onPress={goToOptions}>
+        <View style={styles.itemContainer}>
+          <Text style={styles.itemText}>Opções</Text>
+        </View>
+      </NativeButton>
     </View>
   );
 }
