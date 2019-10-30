@@ -3,13 +3,13 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
-export default function DetailedPlant(props) {
+export default function Gallery(props) {
   return (
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.subHeaderContainer}>
           <Text style={styles.subHeaderText}>
-            {props.navigation.getParam('plant')} - Planta Detalhada
+            {props.navigation.getParam('plant')} - Galeria
           </Text>
         </View>
       </ScrollView>

@@ -25,19 +25,21 @@ export default function PlantOptions(props) {
     }
   ];
 
-  function goToOption(option) {
-    props.navigation.navigate(option);
+  function goToOption(option, plant) {
+    props.navigation.navigate(option, {
+      plant
+    });
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.subHeaderContainer}>
-        <Text style={styles.subHeaderText}>Sala 5001</Text>
+        <Text style={styles.subHeaderText}>{props.navigation.getParam('plant')}</Text>
       </View>
       <ScrollView>
         {options.map((option, index) => {
           return (
-            <NativeButton onPress={() => goToOption(option.goTo)} key={index}>
+            <NativeButton onPress={() => goToOption(option.goTo, props.navigation.getParam('plant'))} key={index}>
               <View style={styles.itemContainer}>
                 <Text style={styles.itemText}>{option.text}</Text>
               </View>

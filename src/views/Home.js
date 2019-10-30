@@ -6,6 +6,10 @@ import Colors from '../constants/Colors';
 import NativeButton from '../components/NativeButton';
 
 export default function Home(props) {
+  const plants = [
+    'Bloco 5'
+  ];
+
   function goToPlant() {
     props.navigation.navigate('Plant');
   }
@@ -16,11 +20,15 @@ export default function Home(props) {
         <Text style={styles.subHeaderText}>Projetos</Text>
       </View>
       <ScrollView>
-        <NativeButton onPress={goToPlant}>
-          <View style={styles.itemContainer}>
-            <Text style={styles.itemText}>Bloco 5</Text>
-          </View>
-        </NativeButton>
+        { plants.map((plant) => {
+          return (
+            <NativeButton onPress={goToPlant} key={plant}>
+              <View style={styles.itemContainer}>
+                <Text style={styles.itemText}>{plant}</Text>
+              </View>
+            </NativeButton>
+          );
+        }) }
       </ScrollView>
       <View style={styles.floatButtonContainer}>
         <View style={styles.floatButton}>

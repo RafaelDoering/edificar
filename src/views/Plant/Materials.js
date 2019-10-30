@@ -3,32 +3,106 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
-export default function Materials() {
-  const materials = [
-    {
-      name: 'Porta de Madeira 2x2',
-      quantity: '1 unidade',
-      status: 'Instalado'
-    },
-    {
-      name: 'Piso de Borracha',
-      quantity: '125m²',
-      status: 'Instalado'
-    },
-    {
-      name: 'Carteira',
-      quantity: '50 unidades',
-      status: 'Não Instalado'
-    }
-  ];
+export default function Materials(props) {
+  const materials = {
+    'Sala 5-101': [
+      {
+        name: 'Porta de Madeira 2x2',
+        quantity: '1 unidade',
+        status: 'Instalado'
+      },
+      {
+        name: 'Piso de Borracha',
+        quantity: '125m²',
+        status: 'Instalado'
+      },
+      {
+        name: 'Carteira',
+        quantity: '50 unidades',
+        status: 'Não Instalado'
+      }
+    ],
+    'Sala 5-102': [
+      {
+        name: 'Porta de Madeira 2x2',
+        quantity: '1 unidade',
+        status: 'Instalado'
+      },
+      {
+        name: 'Piso de Borracha',
+        quantity: '125m²',
+        status: 'Instalado'
+      },
+      {
+        name: 'Carteira',
+        quantity: '50 unidades',
+        status: 'Não Instalado'
+      }
+    ],
+    'Sala 5-103': [
+      {
+        name: 'Porta de Madeira 2x2',
+        quantity: '1 unidade',
+        status: 'Instalado'
+      },
+      {
+        name: 'Piso de Borracha',
+        quantity: '125m²',
+        status: 'Instalado'
+      },
+      {
+        name: 'Carteira',
+        quantity: '50 unidades',
+        status: 'Não Instalado'
+      }
+    ],
+    'Sala 5-104': [
+      {
+        name: 'Porta de Madeira 2x2',
+        quantity: '1 unidade',
+        status: 'Instalado'
+      },
+      {
+        name: 'Piso de Borracha',
+        quantity: '125m²',
+        status: 'Instalado'
+      },
+      {
+        name: 'Carteira',
+        quantity: '50 unidades',
+        status: 'Não Instalado'
+      }
+    ],
+    'Corredor 1': [
+      {
+        name: 'Piso de Borracha',
+        quantity: '125m²',
+        status: 'Instalado'
+      }
+    ],
+    'Corredor 2': [
+      {
+        name: 'Piso de Borracha',
+        quantity: '125m²',
+        status: 'Instalado'
+      }
+    ],
+    'Corredor 3': [
+      {
+        name: 'Piso de Borracha',
+        quantity: '125m²',
+        status: 'Instalado'
+      }
+    ]
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.subHeaderContainer}>
-        <Text style={styles.subHeaderText}>Sala 5001 - Lista de Materiais</Text>
+        <Text style={styles.subHeaderText}>{props.navigation.getParam('plant')} - Lista de Materiais</Text>
       </View>
       <ScrollView>
-        {materials.map((material, index) => {
+        {materials[props.navigation.getParam('plant')].map((material, index) => {
           return (
             <View
               style={styles.itemContainer}
